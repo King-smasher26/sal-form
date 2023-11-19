@@ -110,7 +110,6 @@ const HandleInput = createSlice({
                 state.pageState=state.pageState+1;
 
             }
-            state.pageState=state.pageState+1
         },
         handleaboutyou1(state,action){
             state.aboutyou1=action.payload;
