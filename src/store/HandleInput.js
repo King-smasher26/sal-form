@@ -23,7 +23,8 @@ const initialState={
     interviewDate:[],
     interviewTime:[],
     interviewTimeZone:[],
-    interviewMedium:[]
+    interviewMedium:[],
+    sidepanel:0
 }
 const HandleInput = createSlice({
     name:'inputValue',
@@ -55,6 +56,7 @@ const HandleInput = createSlice({
             }
             else{
                 state.pageState=state.pageState+1;
+                state.sidepanel=state.sidepanel+1;
             }
         },
         handleMarksheet10(state,action){

@@ -9,16 +9,36 @@ import SubmitPages from './pages/SubmitPages';
 import { actions } from './store/HandleInput';
 import { useDispatch } from 'react-redux';
 import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
+import { useEffect } from 'react';
 
 function App() {
   const pageState= useSelector(state=>state.pageState)
   const dispatch=useDispatch();
+  const sidepanel=useSelector(state=>state.sidepanel)
+  useEffect(()=>{
+    if(pageState==1){
+      document.querySelector('#side-cont-2').className='side-container'
+      document.querySelector('#side-cont-3').className='converted-side-container'
+    }
+    if(pageState==2){
+      document.querySelector('#side-cont-3').className='side-container'
+      document.querySelector('#side-cont-4').className='converted-side-container'
+    }
+    if(pageState==3){
+      document.querySelector('#side-cont-4').className='side-container'
+      document.querySelector('#side-cont-5').className='converted-side-container'
+    }
+    if(pageState==4){
+      document.querySelector('#submit-form').className='dissapear-submit';
+    }
+  })
   function submitted(){
     console.log("form submitted")
   }
   // const pageState = 0;
   function pagechange(e){
     e.preventDefault();
+    console.log(pageState)
     if(pageState==0){
       dispatch(actions.validationHandler(pageState));
     }
@@ -27,26 +47,7 @@ function App() {
     }
     if(pageState==2){
       dispatch(actions.validationHandler3(pageState));
-    }
-    console.log('yoooo')
-    // setPageState(obj=>obj+1)
-    console.log(pageState)
-    if(pageState==0){
-      console.log('y')
-      // console.log(state)
-      document.querySelector('#side-cont-2').className='side-container'
-      document.querySelector('#side-cont-3').className='converted-side-container'
-    }
-    if(pageState==1){
-      console.log('y')
-      document.querySelector('#side-cont-3').className='side-container'
-      document.querySelector('#side-cont-4').className='converted-side-container'
-    }
-    if(pageState==2){
-      console.log('y')
-      document.querySelector('#side-cont-4').className='side-container'
-      document.querySelector('#side-cont-5').className='converted-side-container'
-    }
+    }    
   }
   function handlesubmit(e){
     e.preventDefault();
@@ -116,8 +117,7 @@ contact no,etc</div>
       <Route path="/InterviewAvailability" element={<InterviewAvailability/>} />
     </Routes> */}
       {displayPage[pageState]}
-
-      { pageState<3? <footer><button className='next-page-btn' onClick={pagechange}>next</button></footer>:<footer><button className='next-page-btn abc' onClick={(e)=>{
+      { pageState<3? <footer><button className='next-page-btn' onClick={pagechange}>next</button></footer>:<footer><button className='next-page-btn abc' id='submit-form' onClick={(e)=>{
         dispatch(actions.validationHandler4(pageState));
       }}>Submit</button></footer>}
       {/* <button onClick={pagechange}>next</button> */}

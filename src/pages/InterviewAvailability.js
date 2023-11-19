@@ -2,10 +2,6 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { actions } from '../store/HandleInput';
 const InterviewAvailability = () => {
-    function hello(e){
-        e.preventDefault();
-        console.log('yo')
-    }
     const dispatch=useDispatch();
   return (
     <div className='InterviewAvailability-Container'>

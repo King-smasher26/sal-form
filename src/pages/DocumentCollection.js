@@ -22,12 +22,6 @@ const DocumentCollection = () => {
       dispatch(actions.handleMarksheetgrad(myfilename));
       document.querySelector('#myspan3').innerHTML=`${myfilename.slice(0,6)}...attached`;
     }
-    // function filesub4(e){
-    //   console.log(e.target.files[0].name);
-    //   const myfilename=e.target.files[0].name;
-    //   dispatch(actions.handleMarksheetpostgrad(myfilename));
-    //   document.querySelector('#myspan4').innerHTML=`${myfilename.slice(0,6)}...attached`;
-    // }
     function filesub4(e){
       console.log(e.target.files[0].name);
       const myfilename=e.target.files[0].name;
@@ -94,15 +88,6 @@ const DocumentCollection = () => {
         </label>
         <span className='myspan' id='myspan3'></span>
       </div>
-      {/* <div className='docCollection-conained'>
-
-        <div className='doc-text'>Post Graduation Marksheet</div>
-        <label htmlFor="myfileinput4" className='mylabel'>
-          Attach file upto 5kb
-          <input type="file" name="uploadfile" id="myfileinput5" onChange={filesub4} />
-        </label>
-        <span className='myspan' id='myspan4'></span>
-      </div> */}
       <div className='docCollection-conained'>
         <div className='doc-text'>Post Graduation Marksheet</div>
         <label htmlFor="myfileinput4" className='mylabel'>

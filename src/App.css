@@ -445,3 +445,7 @@ background: var(--blue-background, #F5F8FA);
     width: 100vw;
   }
 }
+
+.dissapear-submit{
+  display: none;
+}
